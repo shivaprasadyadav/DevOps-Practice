@@ -1,77 +1,57 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Basic project information -->
-    <groupId>com.devops</groupId>
-    <artifactId>website</artifactId>
-    <version>1.0</version>
-    <packaging>jar</packaging> <!-- Specify JAR as packaging type -->
+    <!-- Project Details -->
+    <groupId>com.example</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-    <!-- Name and description of the project -->
-    <name>Website</name>
-    <description>A simple Java web application</description>
+    <name>My App</name>
 
-    <!-- Properties to manage versions -->
+    <!-- Java Version -->
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
-    <!-- Dependencies required by the project -->
+    <!-- Dependencies -->
     <dependencies>
-        <!-- Servlet API dependency required for web apps -->
+        <!-- Example dependency -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.14.0</version>
         </dependency>
-
-        <!-- JUnit dependency for testing -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.1</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- Other dependencies can go here -->
     </dependencies>
 
-    <!-- Build configuration -->
+    <!-- Build Plugins -->
     <build>
         <plugins>
-            <!-- Maven jar Plugin to package the app as jar -->
+
+            <!-- Compiler Plugin -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+            </plugin>
+
+            <!-- JAR Plugin -->
+            <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.3.1</version>
+                <version>3.3.0</version>
                 <configuration>
-                    <webResources>
-                        <!-- Include resources from the src/main/webapp folder -->
-                        <resource>
-                            <directory>src/main/webapp</directory>
-                        </resource>
-                    </webResources>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.example.Main</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
 
-            <!-- Optional: Tomcat plugin for deployment -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
-                <configuration>
-                    <url>http://localhost:8080/manager/text</url>
-                    <server>TomcatServer</server> <!-- Server configuration in settings.xml -->
-                    <path>/myapp</path> <!-- Context path on the server -->
-                    <username>admin</username>
-                    <password>admin</password>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
