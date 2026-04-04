@@ -8,7 +8,7 @@
     <groupId>com.devops</groupId>
     <artifactId>website</artifactId>
     <version>1.0</version>
-    <packaging>war</packaging> <!-- Specify WAR as packaging type -->
+    <packaging>jar</packaging> <!-- Specify JAR as packaging type -->
 
     <!-- Name and description of the project -->
     <name>Website</name>
@@ -44,10 +44,10 @@
     <!-- Build configuration -->
     <build>
         <plugins>
-            <!-- Maven War Plugin to package the app as WAR -->
+            <!-- Maven jar Plugin to package the app as jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
+                <artifactId>maven-jar-plugin</artifactId>
                 <version>3.3.1</version>
                 <configuration>
                     <webResources>
